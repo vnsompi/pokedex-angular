@@ -1,0 +1,19 @@
+{
+  "remoteconfig": {
+    "template": "dist/anular-pokedex-app/browser"
+  },
+  "hosting": {
+    "public": "dist/angular-pokedex-app/browser",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
