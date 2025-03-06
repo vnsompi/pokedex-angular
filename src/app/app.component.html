@@ -1,8 +1,14 @@
 
   <h1>Pokedex</h1>
   <!-- ici j'ajoute les deux caracteristique de mon pokemo, -->
-  <h2>{{name}}</h2>
-  <p>Points de vie:{{life}}</p>
+  <h2>{{name()}}</h2>
+  <p>Taille:{{size()}}</p>
+   
+  <!-- comme nous avons utiliser le 
+   signal lors du chargement de variable ici nous mettre des 
+   parenthse pour l'appliquer  -->
+   
+  <p>Points de vie:{{life()}}</p>
 
   <button (click)="incrementLife()">+</button>
   <button (click)="decrementLife()">-</button>

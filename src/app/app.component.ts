@@ -1,26 +1,48 @@
-import { Component } from '@angular/core';
-
+import { Component, signal } from '@angular/core';
+import { computed } from '@angular/core';
 @Component({
   selector: 'app-root',
   imports: [],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 }) 
+
 export class AppComponent {
   title = 'Angular!';
-  name = "pikachou";
-  life = "21";
+   // utilisation des signal 
+  name = signal("pikachou");
+  life = signal(21); // ici on a 21 vie
+    
 
-  
+  // je vais creer une fonction qui va retourner la taille du pokemon
+//  ici on doit utiliser computed pour calculer la taille cor le deriver 
+// appeler lesetat dervies 
+
+  size = computed(() => {
+    if(this.life() < 15){
+      return "petit";
+  }
+  else if(this.life() > 25){;
+    return "grand";
+  } 
+  else{
+    return "moyen";
+  }
+  });
+
 incrementLife(){
-  this.life = this.life + 1; // ici on incremente une vie
+  this.life.update((life)=> life + 1); // ici on incremente une vie
+  // vu que nous avons utiliser le signal la syntaxe change aussi
 }
   decrementLife(){
-    this.life = this.life - 1; // }ici on decremente une vie
-    
+    this.life.update((life)=> life - 1);// }ici on decremente une vie
     
 }
 
+// je met un fonction qui va devoir afficher la taille de pokemon
+
 
 
 }
+
+
