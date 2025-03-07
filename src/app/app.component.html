@@ -1,16 +1,29 @@
 
   <h1>Pokedex</h1>
-  <!-- ici j'ajoute les deux caracteristique de mon pokemo, -->
-  <h2>{{name()}}</h2>
-  <p>Taille:{{size()}}</p>
-   
-  <!-- comme nous avons utiliser le 
-   signal lors du chargement de variable ici nous mettre des 
-   parenthse pour l'appliquer  -->
-   
-  <p>Points de vie:{{life()}}</p>
-
-  <button (click)="incrementLife()">+</button>
-  <button (click)="decrementLife()">-</button>
+  <!--  ici on aboucler nos images pour afficher unliste  -->
+  @for( pokemon of pokemon_list();track pokemon.id){
+     <h1>{{pokemon.name}}</h1>
+     <img [src]="pokemon.picture" alt="pokemon.name"/>
+     <p>Point de vie: {{pokemon.life}}</p>
+  }
 
       
+
+
+
+
+
+
+
+
+
+    <!--voici comment fonctionne le @if pour conditionner   -->
+    <!-- @if(life() < 30){
+      <button (click)="incrementLife()">+</button>
+    } @if(life() > 10){
+      <button (click)="decrementLife()">-</button>
+    } -->
+       <!-- voila comment comditionner l'affichage du bouton -->
+     <!-- <button (click)="incrementLife()" [disabled] = "life() > 30 ">+</button> 
+       <button (click)="decrementLife()" [disabled] = "life() <= 10 ">-</button> 
+       -->

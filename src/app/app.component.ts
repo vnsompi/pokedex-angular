@@ -1,5 +1,9 @@
 import { Component, signal } from '@angular/core';
 import { computed } from '@angular/core';
+import{POKEMON_LIST} from './pokemon-list.fake';
+
+
+
 @Component({
   selector: 'app-root',
   imports: [],
@@ -8,13 +12,14 @@ import { computed } from '@angular/core';
 }) 
 
 export class AppComponent {
+  pokemon_list = signal(POKEMON_LIST);
   title = 'Angular!';
    // utilisation des signal 
   name = signal("pikachou");
   life = signal(21); // ici on a 21 vie
     
 
-  // je vais creer une fonction qui va retourner la taille du pokemon
+// je vais creer une fonction qui va retourner la taille du pokemon
 //  ici on doit utiliser computed pour calculer la taille cor le deriver 
 // appeler lesetat dervies 
 
@@ -29,6 +34,11 @@ export class AppComponent {
     return "moyen";
   }
   });
+  // ajout d'un autre signale
+  imageSource = signal(
+    'https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png'
+    
+  );
 
 incrementLife(){
   this.life.update((life)=> life + 1); // ici on incremente une vie
